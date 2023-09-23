@@ -19,6 +19,7 @@ const sessionVerification = require('./middlewares/sessionVerification')
 
 app.use(session({
     cookie: { maxAge: 86400000 },
+
     store: new MemoryStore({
         checkPeriod: 86400000 // prune expired entries every 24h
     }),
@@ -26,6 +27,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
 }));
+
+console.log(process.env.SESSION_SECRET)
 
 app.use(express.urlencoded({extended: true})); 
 // app.use(sessionVerification)
