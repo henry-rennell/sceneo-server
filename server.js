@@ -28,7 +28,6 @@ app.use(session({
     saveUninitialized: true,
 }));
 
-console.log(process.env.SESSION_SECRET)
 
 app.use(express.urlencoded({extended: true})); 
 // app.use(sessionVerification)
