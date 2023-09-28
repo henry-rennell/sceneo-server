@@ -30,17 +30,12 @@ router.get('/gigs/all',  async (req, res, next) => {
         const sql = `SELECT * FROM gigs;`;
         pool.query(sql, (err, dbRes) => {
             if (err) {
-                next(err)
+                return next(err)
             }
-            if(!Object.keys(dbRes).includes('rows')) {
-                res.send('no gigs to display sorry...')
-            } else if(dbRes.rows) {
-                res.send(dbRes.rows)
-            }
+            res.send(dbRes.rows)
         })
 
     } catch (err) {
-        res.send('no gigs to display')
         next(err)
     }
 })
