@@ -32,7 +32,7 @@ router.get('/gigs/all',  async (req, res, next) => {
             if (err) {
                 next(err)
             }
-            if(!Object.keys(dbRes.rows).includes('rows')) {
+            if(!Object.keys(dbRes).includes('rows')) {
                 res.send('no gigs to display sorry...')
             } else if(dbRes.rows) {
                 res.send(dbRes.rows)
