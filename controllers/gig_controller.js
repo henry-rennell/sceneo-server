@@ -32,7 +32,11 @@ router.get('/gigs/all',  async (req, res, next) => {
             if (err) {
                 next(err)
             }
-            res.send(dbRes.rows)
+            if(!dbRes.rows) {
+                res.send('no gigs to display sorry...')
+            } else if(dbRes.rows) {
+                res.send(dbRes.rows)
+            }
         })
 
     } catch (err) {

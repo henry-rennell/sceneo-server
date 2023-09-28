@@ -12,7 +12,7 @@ CREATE TABLE gigs (
     date text,
     start_time text,
     username text,
-    user_id text,
+    user_id text
 );
 
 
