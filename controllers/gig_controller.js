@@ -41,6 +41,7 @@ router.get('/gigs/all',  async (req, res, next) => {
         })
 
     } catch (err) {
+        res.send('no gigs to display')
         next(err)
     }
 })
